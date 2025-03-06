@@ -109,5 +109,9 @@ func findTreasureType(region string, roll int) string {
 }
 
 func (r *treasureTypeInDavokar) Category() string {
+    return "Ruins of Symbaroum 5E"
+}
+
+func (r *treasureTypeInDavokar) SubCategory() string {
     return "Davokar"
 }

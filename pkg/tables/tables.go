@@ -13,6 +13,7 @@ type Table interface {
     GetRandomEntry() string
     GetFormatted() string
     Category() string
+    SubCategory() string
 }
 
 // knownTables is a registry of all tables your CLI can interact with.
@@ -49,20 +50,28 @@ func randomIndex(sliceLength int) int {
 }
 
 func ListTables() []string {
-    // We'll create a map: category -> slice of table names
-    categoryMap := make(map[string][]string)
+    // Create a nested map: category -> subcategory -> slice of table names
+    categoryMap := make(map[string]map[string][]string)
     for _, t := range knownTables {
         cat := t.Category()
+        subCat := t.SubCategory()
         name := t.Name()
-        categoryMap[cat] = append(categoryMap[cat], name)
+
+        if categoryMap[cat] == nil {
+            categoryMap[cat] = make(map[string][]string)
+        }
+        categoryMap[cat][subCat] = append(categoryMap[cat][subCat], name)
     }
 
-    // Build a final slice of strings, grouped by category
+    // Build a final slice of strings, grouped by category and subcategory
     var result []string
-    for cat, tables := range categoryMap {
+    for cat, subCategories := range categoryMap {
         result = append(result, fmt.Sprintf("[%s]", cat))
-        for _, tableName := range tables {
-            result = append(result, "  - " + tableName)
+        for subCat, tables := range subCategories {
+            result = append(result, fmt.Sprintf("  - %s:", subCat))
+            for _, tableName := range tables {
+                result = append(result, "    - " + tableName)
+            }
         }
     }
 

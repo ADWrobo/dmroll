@@ -60,5 +60,9 @@ func (d *daysOfTheWeek) GetFormatted() string {
 }
 
 func (d *daysOfTheWeek) Category() string {
+    return "Ruins of Symbaroum 5E"
+}
+
+func (d *daysOfTheWeek) SubCategory() string {
     return "DM Tools"
 }

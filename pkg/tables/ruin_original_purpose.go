@@ -89,7 +89,10 @@ func (r *ruinOriginalPurpose) GetFormatted() string {
     return sb.String()
 }
 
-// Category returns the table category
 func (r *ruinOriginalPurpose) Category() string {
+    return "Ruins of Symbaroum 5E"
+}
+
+func (r *ruinOriginalPurpose) SubCategory() string {
     return "Ruin"
 }

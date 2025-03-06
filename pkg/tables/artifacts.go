@@ -89,5 +89,9 @@ func findArtifactEntry(roll int) ArtifactEntry {
 }
 
 func (m *artifacts) Category() string {
+    return "Ruins of Symbaroum 5E"
+}
+
+func (m *artifacts) SubCategory() string {
     return "Treasure"
 }

@@ -107,5 +107,9 @@ func findEncounterEntry(roll int) EncountersEntry {
 }
 
 func (r *encountersInDavokar) Category() string {
+    return "Ruins of Symbaroum 5E"
+}
+
+func (r *encountersInDavokar) SubCategory() string {
     return "Davokar"
 }

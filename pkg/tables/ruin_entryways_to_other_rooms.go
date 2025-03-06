@@ -71,7 +71,10 @@ func (r *ruinEntrywaysToOtherRooms) GetFormatted() string {
     return sb.String()
 }
 
-// Category returns the table category
 func (r *ruinEntrywaysToOtherRooms) Category() string {
+    return "Ruins of Symbaroum 5E"
+}
+
+func (r *ruinEntrywaysToOtherRooms) SubCategory() string {
     return "Ruin"
 }

@@ -84,5 +84,9 @@ func (wg *wildernessGuides) GetFormatted() string {
 }
 
 func (m *wildernessGuides) Category() string {
+    return "Ruins of Symbaroum 5E"
+}
+
+func (m *wildernessGuides) SubCategory() string {
     return "People"
 }

@@ -70,7 +70,10 @@ func (r *ruinOverallTraits) GetFormatted() string {
     return sb.String()
 }
 
-// Category returns the table category
 func (r *ruinOverallTraits) Category() string {
+    return "Ruins of Symbaroum 5E"
+}
+
+func (r *ruinOverallTraits) SubCategory() string {
     return "Ruin"
 }

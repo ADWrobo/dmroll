@@ -64,5 +64,9 @@ func (b *briberyRiskLevels) GetFormatted() string {
 }
 
 func (b *briberyRiskLevels) Category() string {
+    return "Ruins of Symbaroum 5E"
+}
+
+func (b *briberyRiskLevels) SubCategory() string {
     return "DM Tools"
 }

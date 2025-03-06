@@ -131,5 +131,9 @@ func findTerrainEntry(roll int) TerrainEntry {
 }
 
 func (r *terrainInDavokar) Category() string {
+    return "Ruins of Symbaroum 5E"
+}
+
+func (r *terrainInDavokar) SubCategory() string {
     return "Davokar"
 }

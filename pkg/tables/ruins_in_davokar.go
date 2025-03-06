@@ -110,5 +110,9 @@ func findRuinEntry(roll int) RuinEntry {
 }
 
 func (r *ruinsInDavokar) Category() string {
+    return "Ruins of Symbaroum 5E"
+}
+
+func (r *ruinsInDavokar) SubCategory() string {
     return "Davokar"
 }

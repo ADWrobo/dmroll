@@ -57,5 +57,9 @@ func (s *settlementTradeValues) GetFormatted() string {
 }
 
 func (s *settlementTradeValues) Category() string {
+    return "Ruins of Symbaroum 5E"
+}
+
+func (s *settlementTradeValues) SubCategory() string {
     return "DM Tools"
 }

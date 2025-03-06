@@ -49,5 +49,9 @@ func (l *lifestyleExpenses) GetFormatted() string {
 }
 
 func (l *lifestyleExpenses) Category() string {
+    return "Ruins of Symbaroum 5E"
+}
+
+func (l *lifestyleExpenses) SubCategory() string {
     return "DM Tools"
 }

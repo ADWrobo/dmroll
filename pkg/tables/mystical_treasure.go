@@ -183,5 +183,9 @@ func findMysticalTreasure(roll int) TreasureEntry {
 }
 
 func (m *mysticalTreasure) Category() string {
+    return "Ruins of Symbaroum 5E"
+}
+
+func (m *mysticalTreasure) SubCategory() string {
     return "Treasure"
 }

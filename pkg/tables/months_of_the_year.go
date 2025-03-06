@@ -66,5 +66,9 @@ func (m *monthsOfTheYear) GetFormatted() string {
 }
 
 func (m *monthsOfTheYear) Category() string {
+    return "Ruins of Symbaroum 5E"
+}
+
+func (m *monthsOfTheYear) SubCategory() string {
     return "DM Tools"
 }

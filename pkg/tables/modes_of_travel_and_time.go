@@ -53,5 +53,9 @@ func (t *travelTime) GetRandomEntry() string {
 }
 
 func (t *travelTime) Category() string {
+    return "Ruins of Symbaroum 5E"
+}
+
+func (t *travelTime) SubCategory() string {
     return "DM Tools"
 }

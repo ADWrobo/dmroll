@@ -55,5 +55,9 @@ func (e *expenses) GetFormatted() string {
 }
 
 func (e *expenses) Category() string {
+    return "Ruins of Symbaroum 5E"
+}
+
+func (e *expenses) SubCategory() string {
     return "DM Tools"
 }

@@ -127,5 +127,9 @@ func findEnemiesEntry(roll int) EnemiesEntry {
 }
 
 func (r *enemiesInDavokar) Category() string {
+    return "Ruins of Symbaroum 5E"
+}
+
+func (r *enemiesInDavokar) SubCategory() string {
     return "Davokar"
 }

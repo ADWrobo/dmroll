@@ -85,5 +85,9 @@ func findMarkOfCorruption(roll int) MarkOfCorruptionEntry {
 }
 
 func (m *marksOfCorruption) Category() string {
+    return "Ruins of Symbaroum 5E"
+}
+
+func (m *marksOfCorruption) SubCategory() string {
     return "DM Tools"
 }

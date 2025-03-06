@@ -94,5 +94,9 @@ func (d *difficultyClassRanges) GetFormatted() string {
 }
 
 func (d *difficultyClassRanges) Category() string {
+    return "Ruins of Symbaroum 5E"
+}
+
+func (d *difficultyClassRanges) SubCategory() string {
     return "DM Tools"
 }

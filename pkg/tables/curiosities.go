@@ -137,5 +137,9 @@ func findCuriosity(roll int) CuriosityEntry {
 }
 
 func (m *curiosities) Category() string {
+    return "Ruins of Symbaroum 5E"
+}
+
+func (m *curiosities) SubCategory() string {
     return "Treasure"
 }

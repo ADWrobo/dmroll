@@ -69,7 +69,10 @@ func (r *ruinInhabitantsRelationship) GetFormatted() string {
     return sb.String()
 }
 
-// Category returns the table category
 func (r *ruinInhabitantsRelationship) Category() string {
+    return "Ruins of Symbaroum 5E"
+}
+
+func (r *ruinInhabitantsRelationship) SubCategory() string {
     return "Ruin"
 }
