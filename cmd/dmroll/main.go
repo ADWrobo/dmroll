@@ -11,6 +11,7 @@ import (
 
     "dmroll/pkg/dice"
     "dmroll/pkg/tables"
+    _ "dmroll/pkg/tables/ruins_of_symbaroum_5e"
 )
 
 var (
@@ -59,12 +60,21 @@ func main() {
         leftoverArgs := flag.Args()
 
         // 2A) List Tables: dmroll -t -l
-        if *listTablesFlag && len(leftoverArgs) == 0 && *printTableFlag == "" {
-            tablesList := tables.ListTables()
+        if *listTablesFlag {
+            var categoryFilter, subCategoryFilter string
+
+            // Check if additional arguments are provided for filtering
+            if len(leftoverArgs) > 0 {
+                filter := strings.ToLower(strings.Join(leftoverArgs, " ")) // ✅ Joins all words into one string
+                subCategoryFilter = filter // ✅ Always treat this as a subcategory filter
+            }
+
+            tablesList := tables.ListTables(categoryFilter, subCategoryFilter)
             if len(tablesList) == 0 {
-                printWithNewline("No tables are currently registered.")
+                printWithNewline("No tables match the given filters.")
                 return
             }
+
             msg := "Available tables:"
             for _, line := range tablesList {
                 msg += "\n" + line
@@ -124,9 +134,11 @@ func usage() {
     fmt.Println("Usage examples:")
     fmt.Println("  dmroll -r 1d20               Roll dice notation (e.g. '1d20')")
     fmt.Println("  dmroll -t -l                 List all registered tables")
+    fmt.Println("  dmroll -t -l <category>      List tables in a specific category")
+    fmt.Println("  dmroll -t -l <sub_category>  List tables in a specific sub-category")
     fmt.Println("  dmroll -t <table_name>       Roll a random entry from <table_name>")
     fmt.Println("  dmroll -t -p <table_name>    Print the entire <table_name> in ASCII")
-    fmt.Println("  dmroll -b ruin                Build a ruin scenario from multiple tables")
+    fmt.Println("  dmroll -b ruin               Build a ruin scenario from multiple tables")
 }
 
 func buildRuin() string {
