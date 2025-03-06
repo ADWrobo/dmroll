@@ -1,3 +1,6 @@
+// TODO: Same as food and drink--should this be broken out into smaller table files?
+// I could see the value in making it easier for users to find a specific item...
+
 package ruins_of_symbaroum_5e
 
 import (
