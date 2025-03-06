@@ -49,12 +49,12 @@ func randomIndex(sliceLength int) int {
     return rand.Intn(sliceLength)
 }
 
-func ListTables() []string {
+func ListTables(categoryFilter, subCategoryFilter string) []string {
     // Create a nested map: category -> subcategory -> slice of table names
     categoryMap := make(map[string]map[string][]string)
     for _, t := range knownTables {
-        cat := t.Category()
-        subCat := t.SubCategory()
+        cat := strings.ToLower(t.Category())
+        subCat := strings.ToLower(t.SubCategory())
         name := t.Name()
 
         if categoryMap[cat] == nil {
@@ -63,11 +63,17 @@ func ListTables() []string {
         categoryMap[cat][subCat] = append(categoryMap[cat][subCat], name)
     }
 
-    // Build a final slice of strings, grouped by category and subcategory
     var result []string
     for cat, subCategories := range categoryMap {
+        if categoryFilter != "" && !strings.Contains(strings.ToLower(cat), categoryFilter) {
+            continue
+        }
+
         result = append(result, fmt.Sprintf("[%s]", cat))
         for subCat, tables := range subCategories {
+            if subCategoryFilter != "" && !strings.Contains(strings.ToLower(subCat), subCategoryFilter) {
+                continue
+            }
             result = append(result, fmt.Sprintf("  - %s:", subCat))
             for _, tableName := range tables {
                 result = append(result, "    - " + tableName)

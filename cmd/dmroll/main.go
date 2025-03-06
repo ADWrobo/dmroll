@@ -59,12 +59,25 @@ func main() {
         leftoverArgs := flag.Args()
 
         // 2A) List Tables: dmroll -t -l
-        if *listTablesFlag && len(leftoverArgs) == 0 && *printTableFlag == "" {
-            tablesList := tables.ListTables()
+        if *listTablesFlag {
+            var categoryFilter, subCategoryFilter string
+
+            // Check if additional arguments are provided for filtering
+            if len(leftoverArgs) > 0 {
+                if len(leftoverArgs) == 1 {
+                    subCategoryFilter = strings.ToLower(leftoverArgs[0]) // Only subcategory
+                } else if len(leftoverArgs) == 2 {
+                    categoryFilter = strings.ToLower(leftoverArgs[0])    // Category
+                    subCategoryFilter = strings.ToLower(leftoverArgs[1]) // Subcategory
+                }
+            }
+
+            tablesList := tables.ListTables(categoryFilter, subCategoryFilter)
             if len(tablesList) == 0 {
-                printWithNewline("No tables are currently registered.")
+                printWithNewline("No tables match the given filters.")
                 return
             }
+
             msg := "Available tables:"
             for _, line := range tablesList {
                 msg += "\n" + line
