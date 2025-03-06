@@ -23,6 +23,19 @@ git clone https://github.com/yourusername/dmroll.git
 cd dmroll
 go build -o dmroll ./cmd/dmroll
 ```
+## Building Binaries and Retrieving SHAs (For Homebrew Things)
+
+TODO: Implement some kind of build/release automation in concert with the homebrew tap formula. 
+
+```sh
+GOOS=darwin GOARCH=amd64 go build -o dmroll
+GOOS=darwin GOARCH=arm64 go build -o dmroll-arm64
+GOOS=linux GOARCH=amd64 go build -o dmroll-linux
+
+shasum -a 256 dmroll     # For macOS (Intel)
+shasum -a 256 dmroll-arm64 # For macOS (Apple Silicon)
+shasum -a 256 dmroll-linux   # For Linux
+```
 
 ## Usage
 
