@@ -241,10 +241,26 @@ func buildRuin() string {
             numEntryways, _ := dice.RollDice("1d2")
             for i := 0; i < numEntryways; i++ {
                 entryway, _ := tables.RollOnTable("ruin_entryways_to_other_levels")
-                safeguard, _ := tables.RollOnTable("ruin_safeguards_for_entryways")
-                sb.WriteString(fmt.Sprintf("  %s\n", entryway))
-                sb.WriteString(fmt.Sprintf("  %s\n", safeguard))
+                // Check if the entryway roll is the special case
+                if strings.Contains(entryway, "Roll twice") {
+                    // Roll two extra entryways and a safeguard for each
+                    extra1, _ := tables.RollOnTable("ruin_entryways_to_other_levels")
+                    safeguard1, _ := tables.RollOnTable("ruin_safeguards_for_entryways")
+                    sb.WriteString(fmt.Sprintf("  %s\n", extra1))
+                    sb.WriteString(fmt.Sprintf("  %s\n", safeguard1))
+                    
+                    extra2, _ := tables.RollOnTable("ruin_entryways_to_other_levels")
+                    safeguard2, _ := tables.RollOnTable("ruin_safeguards_for_entryways")
+                    sb.WriteString(fmt.Sprintf("  %s\n", extra2))
+                    sb.WriteString(fmt.Sprintf("  %s\n", safeguard2))
+                } else {
+                    // Normal entryway with its safeguard
+                    sb.WriteString(fmt.Sprintf("  %s\n", entryway))
+                    safeguard, _ := tables.RollOnTable("ruin_safeguards_for_entryways")
+                    sb.WriteString(fmt.Sprintf("  %s\n", safeguard))
+                }
             }
+
             sb.WriteString("\n")
         }
     }
