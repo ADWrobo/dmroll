@@ -65,12 +65,8 @@ func main() {
 
             // Check if additional arguments are provided for filtering
             if len(leftoverArgs) > 0 {
-                if len(leftoverArgs) == 1 {
-                    subCategoryFilter = strings.ToLower(leftoverArgs[0]) // Only subcategory
-                } else if len(leftoverArgs) == 2 {
-                    categoryFilter = strings.ToLower(leftoverArgs[0])    // Category
-                    subCategoryFilter = strings.ToLower(leftoverArgs[1]) // Subcategory
-                }
+                filter := strings.ToLower(strings.Join(leftoverArgs, " ")) // ✅ Joins all words into one string
+                subCategoryFilter = filter // ✅ Always treat this as a subcategory filter
             }
 
             tablesList := tables.ListTables(categoryFilter, subCategoryFilter)
