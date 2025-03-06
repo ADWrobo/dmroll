@@ -11,6 +11,7 @@ import (
 
     "dmroll/pkg/dice"
     "dmroll/pkg/tables"
+    _ "dmroll/pkg/tables/ruins_of_symbaroum_5e"
 )
 
 var (
