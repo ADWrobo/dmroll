@@ -134,9 +134,11 @@ func usage() {
     fmt.Println("Usage examples:")
     fmt.Println("  dmroll -r 1d20               Roll dice notation (e.g. '1d20')")
     fmt.Println("  dmroll -t -l                 List all registered tables")
+    fmt.Println("  dmroll -t -l <category>      List tables in a specific category")
+    fmt.Println("  dmroll -t -l <sub_category>  List tables in a specific sub-category")
     fmt.Println("  dmroll -t <table_name>       Roll a random entry from <table_name>")
     fmt.Println("  dmroll -t -p <table_name>    Print the entire <table_name> in ASCII")
-    fmt.Println("  dmroll -b ruin                Build a ruin scenario from multiple tables")
+    fmt.Println("  dmroll -b ruin               Build a ruin scenario from multiple tables")
 }
 
 func buildRuin() string {

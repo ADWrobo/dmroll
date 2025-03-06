@@ -28,25 +28,18 @@ go build -o dmroll ./cmd/dmroll
 TODO: Implement some kind of build/release automation in concert with the homebrew tap formula. 
 
 ```sh
-[MacOS or Linux]
+# MacOS or Linux
 GOOS=darwin GOARCH=amd64 go build -o dmroll
 GOOS=darwin GOARCH=arm64 go build -o dmroll-arm64
 GOOS=linux GOARCH=amd64 go build -o dmroll-linux
 
-shasum -a 256 dmroll     # For macOS (Intel)
-shasum -a 256 dmroll-arm64 # For macOS (Apple Silicon)
-shasum -a 256 dmroll-linux   # For Linux
+shasum -a 256 dmroll         # macOS (Intel)
+shasum -a 256 dmroll-arm64   # macOS (Apple Silicon)
+shasum -a 256 dmroll-linux   # Linux
 
-[Windows]
-Not working, I just use my Mac...
-
-set GOOS=darwin && set GOARCH=amd64 && go build -o dmroll
-set GOOS=darwin && set GOARCH=arm64 && go build -o dmroll-arm64
-set GOOS=linux && set GOARCH=amd64 && go build -o dmroll-linux
-
-CertUtil -hashfile dmroll SHA256
-CertUtil -hashfile dmroll-arm64 SHA256
-CertUtil -hashfile dmroll-linux SHA256
+# Windows (not yet supported, but for future reference)
+set GOOS=windows && set GOARCH=amd64 && go build -o dmroll.exe
+CertUtil -hashfile dmroll.exe SHA256
 ```
 
 ## Usage
@@ -63,6 +56,13 @@ List all available tables:
 
 ```sh
 dmroll -t -l
+```
+
+List available tables in a category or sub-category:
+
+```sh
+dmroll -t -l <category>
+dmroll -t -l <subcategory>
 ```
 
 Print an entire table:
@@ -139,8 +139,18 @@ RUIN GENERATION COMPLETE
 ```
 dmroll/
 │── cmd/dmroll/        # Main entry point
-│── pkg/dice/          # Dice rolling functions
-│── pkg/tables/        # Table management
+│    └── main.go       # Main application logic
+│── pkg/               # Core packages
+│    ├── dice/         # Dice rolling functions
+│    │    ├── dice.go
+│    │    └── dx.go files
+│    ├── table_registry/ # Table registry
+│    │    └── registry.go
+│    ├── tables/       # Table management
+│    │    ├── ruins_of_symbaroum_5e/
+│    │    │    └── [various tables].go
+│    │    ├── ruins_of_symbaroum_5e_modifiers.go
+│    │    └── tables.go
 │── README.md          # Documentation
 │── go.mod             # Module dependencies
 ```
