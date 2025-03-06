@@ -2,6 +2,7 @@ package table_registry
 
 import (
     "fmt"
+    "sort"
     "strings"
 )
 
@@ -29,13 +30,13 @@ func GetTable(name string) (Table, bool) {
     return t, found
 }
 
-// ListTables lists all registered tables, filtered by category and/or subcategory.
+// ListTables lists all registered tables, sorted alphabetically by category, subcategory, and table name.
 func ListTables(categoryFilter, subCategoryFilter string) []string {
     // Create a nested map: category -> subcategory -> slice of table names
     categoryMap := make(map[string]map[string][]string)
     for _, t := range knownTables {
-        cat := strings.ToLower(t.Category())
-        subCat := strings.ToLower(t.SubCategory())
+        cat := t.Category()
+        subCat := t.SubCategory()
         name := t.Name()
 
         if categoryMap[cat] == nil {
@@ -44,23 +45,41 @@ func ListTables(categoryFilter, subCategoryFilter string) []string {
         categoryMap[cat][subCat] = append(categoryMap[cat][subCat], name)
     }
 
+    // Sort categories
+    var sortedCategories []string
+    for cat := range categoryMap {
+        sortedCategories = append(sortedCategories, cat)
+    }
+    sort.Strings(sortedCategories)
+
     var result []string
-    for cat, subCategories := range categoryMap {
-        if categoryFilter != "" && strings.ToLower(cat) != categoryFilter {
+    for _, cat := range sortedCategories {
+        if categoryFilter != "" && !strings.EqualFold(cat, categoryFilter) {
             continue
-        }        
+        }
 
         result = append(result, fmt.Sprintf("[%s]", cat))
-        for subCat, tables := range subCategories {
-            if subCategoryFilter != "" && !strings.Contains(strings.ToLower(subCat), subCategoryFilter) {
+
+        // Sort subcategories
+        var sortedSubCategories []string
+        for subCat := range categoryMap[cat] {
+            sortedSubCategories = append(sortedSubCategories, subCat)
+        }
+        sort.Strings(sortedSubCategories)
+
+        for _, subCat := range sortedSubCategories {
+            if subCategoryFilter != "" && !strings.Contains(strings.ToLower(subCat), strings.ToLower(subCategoryFilter)) {
                 continue
             }
             result = append(result, fmt.Sprintf("  - %s:", subCat))
-            for _, tableName := range tables {
+
+            // Sort table names
+            sort.Strings(categoryMap[cat][subCat])
+            for _, tableName := range categoryMap[cat][subCat] {
                 result = append(result, "    - " + tableName)
             }
         }
     }
-    
+
     return result
 }
