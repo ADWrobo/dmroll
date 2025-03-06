@@ -41,7 +41,7 @@ func (h *heavyArmor) GetRandomEntry() string {
 // GetFormatted returns an ASCII-formatted table of Heavy Armor.
 func (h *heavyArmor) GetFormatted() string {
     sb := &strings.Builder{}
-    sb.WriteString("HEAVY ARMOR\n")
+    sb.WriteString("HEAVY ARMOR (PG 170)\n")
     sb.WriteString("-----------------------------------------------------------------------------------------------------\n")
     sb.WriteString(fmt.Sprintf("%-30s | %-10s | %-10s | %-10s | %s\n", "Name", "Cost", "Armor Class", "Weight", "Properties"))
     sb.WriteString("-----------------------------------------------------------------------------------------------------\n")

@@ -43,7 +43,7 @@ func (m *mediumArmor) GetRandomEntry() string {
 // GetFormatted returns an ASCII-formatted table of Medium Armor.
 func (m *mediumArmor) GetFormatted() string {
     sb := &strings.Builder{}
-    sb.WriteString("MEDIUM ARMOR\n")
+    sb.WriteString("MEDIUM ARMOR (PG 170)\n")
     sb.WriteString("-----------------------------------------------------------------------------------------------------\n")
     sb.WriteString(fmt.Sprintf("%-25s | %-10s | %-30s | %-10s | %s\n", "Name", "Cost", "Armor Class", "Weight", "Properties"))
     sb.WriteString("-----------------------------------------------------------------------------------------------------\n")

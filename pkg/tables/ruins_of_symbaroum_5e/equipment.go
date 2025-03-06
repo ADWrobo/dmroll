@@ -78,7 +78,7 @@ func (e *equipment) GetRandomEntry() string {
 // GetFormatted returns an ASCII-formatted table of Equipment.
 func (e *equipment) GetFormatted() string {
     sb := &strings.Builder{}
-    sb.WriteString("EQUIPMENT\n")
+    sb.WriteString("EQUIPMENT (PG172)\n")
     sb.WriteString("------------------------------------------------------\n")
     sb.WriteString(fmt.Sprintf("%-25s | %-10s | %s\n", "Item", "Cost", "Weight"))
     sb.WriteString("------------------------------------------------------\n")

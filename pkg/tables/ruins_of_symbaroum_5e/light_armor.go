@@ -45,7 +45,7 @@ func (l *lightArmor) GetRandomEntry() string {
 // GetFormatted returns an ASCII-formatted table of Light Armor.
 func (l *lightArmor) GetFormatted() string {
     sb := &strings.Builder{}
-    sb.WriteString("LIGHT ARMOR\n")
+    sb.WriteString("LIGHT ARMOR (PG 170)\n")
     sb.WriteString("-----------------------------------------------------------------------------------------------------\n")
     sb.WriteString(fmt.Sprintf("%-20s | %-10s | %-25s | %-10s | %s\n", "Name", "Cost", "Armor Class", "Weight", "Properties"))
     sb.WriteString("-----------------------------------------------------------------------------------------------------\n")

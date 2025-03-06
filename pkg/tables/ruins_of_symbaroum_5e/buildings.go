@@ -43,7 +43,7 @@ func (b *buildings) GetRandomEntry() string {
 // GetFormatted returns an ASCII-formatted table of Buildings.
 func (b *buildings) GetFormatted() string {
     sb := &strings.Builder{}
-    sb.WriteString("BUILDINGS\n")
+    sb.WriteString("BUILDINGS (PG 173)\n")
     sb.WriteString("------------------------------------------------------------\n")
     sb.WriteString(fmt.Sprintf("%-20s | %s\n", "Name", "Cost"))
     sb.WriteString("------------------------------------------------------------\n")

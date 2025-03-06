@@ -40,7 +40,7 @@ func (f *firetubeAmmunition) GetRandomEntry() string {
 // GetFormatted returns an ASCII-formatted table of Firetube Ammunition.
 func (f *firetubeAmmunition) GetFormatted() string {
     sb := &strings.Builder{}
-    sb.WriteString("FIRETUBE AMMUNITION\n")
+    sb.WriteString("FIRETUBE AMMUNITION (PG 166)\n")
     sb.WriteString("-------------------------------------------------------------------------------------------------\n")
     sb.WriteString(fmt.Sprintf("%-25s | %-15s | %-10s | %s\n", "Name", "Cost (Portable/Stationary)", "Weight", "Effects (Portable/Stationary)"))
     sb.WriteString("-------------------------------------------------------------------------------------------------\n")

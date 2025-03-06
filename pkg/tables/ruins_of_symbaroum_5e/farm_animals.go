@@ -42,7 +42,7 @@ func (f *farmAnimals) GetRandomEntry() string {
 // GetFormatted returns an ASCII-formatted table of Farm Animals.
 func (f *farmAnimals) GetFormatted() string {
     sb := &strings.Builder{}
-    sb.WriteString("FARM ANIMALS\n")
+    sb.WriteString("FARM ANIMALS (PG 173)\n")
     sb.WriteString("------------------------------------------------------------\n")
     sb.WriteString(fmt.Sprintf("%-20s | %s\n", "Name", "Cost"))
     sb.WriteString("------------------------------------------------------------\n")

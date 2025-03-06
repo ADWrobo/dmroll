@@ -41,7 +41,7 @@ func (s *siegeWeapons) GetRandomEntry() string {
 // GetFormatted returns an ASCII-formatted table of Siege Weapons.
 func (s *siegeWeapons) GetFormatted() string {
     sb := &strings.Builder{}
-    sb.WriteString("SIEGE WEAPONS\n")
+    sb.WriteString("SIEGE WEAPONS (PG 167)\n")
     sb.WriteString("------------------------------------------------------------------------------------------------------------\n")
     sb.WriteString(fmt.Sprintf("%-15s | %-10s | %-15s | %-10s | %s\n", "Name", "Cost", "Damage", "Weight", "Properties"))
     sb.WriteString("------------------------------------------------------------------------------------------------------------\n")

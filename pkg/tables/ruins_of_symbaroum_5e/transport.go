@@ -45,7 +45,7 @@ func (t *transport) GetRandomEntry() string {
 // GetFormatted returns an ASCII-formatted table of Transport.
 func (t *transport) GetFormatted() string {
     sb := &strings.Builder{}
-    sb.WriteString("TRANSPORT\n")
+    sb.WriteString("TRANSPORT (PG 173)\n")
     sb.WriteString("------------------------------------------------------------\n")
     sb.WriteString(fmt.Sprintf("%-20s | %s\n", "Name", "Cost"))
     sb.WriteString("------------------------------------------------------------\n")

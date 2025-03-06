@@ -47,7 +47,7 @@ func (c *containers) GetRandomEntry() string {
 // GetFormatted returns an ASCII-formatted table of Containers.
 func (c *containers) GetFormatted() string {
     sb := &strings.Builder{}
-    sb.WriteString("CONTAINERS\n")
+    sb.WriteString("CONTAINERS (PG 173)\n")
     sb.WriteString("------------------------------------------------------------\n")
     sb.WriteString(fmt.Sprintf("%-20s | %s\n", "Name", "Cost"))
     sb.WriteString("------------------------------------------------------------\n")

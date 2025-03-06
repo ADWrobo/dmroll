@@ -39,7 +39,7 @@ func (s *shields) GetRandomEntry() string {
 // GetFormatted returns an ASCII-formatted table of Shields.
 func (s *shields) GetFormatted() string {
     sb := &strings.Builder{}
-    sb.WriteString("SHIELDS\n")
+    sb.WriteString("SHIELDS (PG 171)\n")
     sb.WriteString("-----------------------------------------------------------------------------------------------------\n")
     sb.WriteString(fmt.Sprintf("%-15s | %-10s | %-10s | %-10s | %s\n", "Name", "Cost", "AC Modifier", "Weight", "Properties"))
     sb.WriteString("-----------------------------------------------------------------------------------------------------\n")

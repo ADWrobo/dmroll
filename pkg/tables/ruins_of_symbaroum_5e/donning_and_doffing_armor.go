@@ -40,7 +40,7 @@ func (d *donningDoffingArmor) GetRandomEntry() string {
 // GetFormatted returns an ASCII-formatted table of Donning and Doffing Armor.
 func (d *donningDoffingArmor) GetFormatted() string {
     sb := &strings.Builder{}
-    sb.WriteString("DONNING AND DOFFING ARMOR\n")
+    sb.WriteString("DONNING AND DOFFING ARMOR (PG 171)\n")
     sb.WriteString("-----------------------------------------------------\n")
     sb.WriteString(fmt.Sprintf("%-20s | %-15s | %s\n", "Category", "Don", "Doff"))
     sb.WriteString("-----------------------------------------------------\n")

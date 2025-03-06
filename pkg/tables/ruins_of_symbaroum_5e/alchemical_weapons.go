@@ -42,7 +42,7 @@ func (a *alchemicalWeapons) GetRandomEntry() string {
 // GetFormatted returns an ASCII-formatted table of alchemical weapons.
 func (a *alchemicalWeapons) GetFormatted() string {
     sb := &strings.Builder{}
-    sb.WriteString("ALCHEMICAL WEAPONS\n")
+    sb.WriteString("ALCHEMICAL WEAPONS (PG 166)\n")
     sb.WriteString("------------------------------------------------------------------------------------------------------------------\n")
     sb.WriteString(fmt.Sprintf("%-25s | %-12s | %-15s | %-6s | %s\n", "Name", "Cost", "Damage", "Wt.", "Properties"))
     sb.WriteString("------------------------------------------------------------------------------------------------------------------\n")

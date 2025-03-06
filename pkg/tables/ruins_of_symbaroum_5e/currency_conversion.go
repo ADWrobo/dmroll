@@ -39,7 +39,7 @@ func (c *currencyConversion) GetRandomEntry() string {
 // GetFormatted returns an ASCII-formatted table of currency conversion values.
 func (c *currencyConversion) GetFormatted() string {
     sb := &strings.Builder{}
-    sb.WriteString("CURRENCY CONVERSION TABLE\n")
+    sb.WriteString("CURRENCY CONVERSION TABLE (PG 160)\n")
     sb.WriteString("--------------------------------------------------\n")
     sb.WriteString(fmt.Sprintf("%-10s | %-10s | %-10s | %s\n", "Coin Name", "GP Value", "SP Value", "CP Value"))
     sb.WriteString("--------------------------------------------------\n")

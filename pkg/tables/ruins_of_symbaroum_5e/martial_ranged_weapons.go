@@ -47,7 +47,7 @@ func (m *martialRangedWeapons) GetRandomEntry() string {
 // GetFormatted returns an ASCII-formatted table of martial ranged weapons.
 func (m *martialRangedWeapons) GetFormatted() string {
     sb := &strings.Builder{}
-    sb.WriteString("MARTIAL RANGED WEAPONS\n")
+    sb.WriteString("MARTIAL RANGED WEAPONS (PG 165)\n")
     sb.WriteString("-----------------------------------------------------------------------------------------------------------\n")
     sb.WriteString(fmt.Sprintf("%-20s | %-12s | %-15s | %-6s | %s\n", "Name", "Cost", "Damage", "Wt.", "Properties"))
     sb.WriteString("-----------------------------------------------------------------------------------------------------------\n")
