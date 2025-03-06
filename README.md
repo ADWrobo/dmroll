@@ -22,6 +22,12 @@ Clone the repository and build the executable:
 git clone https://github.com/yourusername/dmroll.git
 cd dmroll
 go build -o dmroll ./cmd/dmroll
+
+OR
+
+GOOS=darwin GOARCH=amd64 go build -o dmroll
+GOOS=darwin GOARCH=arm64 go build -o dmroll-arm64
+GOOS=linux GOARCH=amd64 go build -o dmroll-linux
 ```
 
 ## Usage
