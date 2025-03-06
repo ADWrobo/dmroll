@@ -28,6 +28,7 @@ go build -o dmroll ./cmd/dmroll
 TODO: Implement some kind of build/release automation in concert with the homebrew tap formula. 
 
 ```sh
+[MacOS or Linux]
 GOOS=darwin GOARCH=amd64 go build -o dmroll
 GOOS=darwin GOARCH=arm64 go build -o dmroll-arm64
 GOOS=linux GOARCH=amd64 go build -o dmroll-linux
@@ -35,6 +36,17 @@ GOOS=linux GOARCH=amd64 go build -o dmroll-linux
 shasum -a 256 dmroll     # For macOS (Intel)
 shasum -a 256 dmroll-arm64 # For macOS (Apple Silicon)
 shasum -a 256 dmroll-linux   # For Linux
+
+[Windows]
+Not working, I just use my Mac...
+
+set GOOS=darwin && set GOARCH=amd64 && go build -o dmroll
+set GOOS=darwin && set GOARCH=arm64 && go build -o dmroll-arm64
+set GOOS=linux && set GOARCH=amd64 && go build -o dmroll-linux
+
+CertUtil -hashfile dmroll SHA256
+CertUtil -hashfile dmroll-arm64 SHA256
+CertUtil -hashfile dmroll-linux SHA256
 ```
 
 ## Usage
